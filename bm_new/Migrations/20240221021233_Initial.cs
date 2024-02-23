@@ -1,22 +1,25 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace dotnet.Migrations
+#nullable disable
+
+namespace bm_new.Migrations
 {
-#pragma warning disable CS8981 // The type name only contains lower-cased ascii characters. Such names may become reserved for the language.
-    public partial class hoe : Migration
-#pragma warning restore CS8981 // The type name only contains lower-cased ascii characters. Such names may become reserved for the language.
+    /// <inheritdoc />
+    public partial class Initial : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Login",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
-                    UserName = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,13 +30,13 @@ namespace dotnet.Migrations
                 name: "Procedures",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Executant = table.Column<string>(nullable: true),
-                    Charges = table.Column<int>(nullable: false),
-                    ExecutantShare = table.Column<int>(nullable: false),
-                    Consent = table.Column<short>(nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Executant = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Charges = table.Column<int>(type: "int", nullable: false),
+                    ExecutantShare = table.Column<int>(type: "int", nullable: false),
+                    Consent = table.Column<short>(type: "smallint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -44,10 +47,10 @@ namespace dotnet.Migrations
                 name: "Services",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -58,24 +61,24 @@ namespace dotnet.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserType = table.Column<string>(nullable: true),
-                    DateOfBirth = table.Column<DateTime>(nullable: false),
-                    MaritalStatus = table.Column<string>(nullable: true),
-                    Religion = table.Column<string>(nullable: true),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    FatherHusbandName = table.Column<string>(nullable: true),
-                    Gender = table.Column<string>(nullable: true),
-                    Cnic = table.Column<string>(nullable: true),
-                    Contact = table.Column<string>(nullable: true),
-                    EmergencyContact = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true),
-                    JoiningDate = table.Column<DateTime>(nullable: false),
-                    FloorNo = table.Column<int>(nullable: false),
-                    Experience = table.Column<string>(nullable: true)
+                    UserType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    MaritalStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Religion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FatherHusbandName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cnic = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Contact = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmergencyContact = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    JoiningDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FloorNo = table.Column<int>(type: "int", nullable: false),
+                    Experience = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,13 +89,13 @@ namespace dotnet.Migrations
                 name: "Doctors",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
-                    ConsultationFee = table.Column<int>(nullable: false),
-                    EmergencyConsultationFee = table.Column<int>(nullable: false),
-                    ShareInFee = table.Column<int>(nullable: false),
-                    SpecialityType = table.Column<string>(nullable: true)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    ConsultationFee = table.Column<int>(type: "int", nullable: false),
+                    EmergencyConsultationFee = table.Column<int>(type: "int", nullable: false),
+                    ShareInFee = table.Column<int>(type: "int", nullable: false),
+                    SpecialityType = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,17 +112,17 @@ namespace dotnet.Migrations
                 name: "Expenses",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    BillType = table.Column<string>(nullable: true),
-                    PaymentType = table.Column<string>(nullable: true),
-                    EmployeeOrVender = table.Column<string>(nullable: true),
-                    VoucherNo = table.Column<string>(nullable: true),
-                    Category = table.Column<string>(nullable: true),
-                    TotalBill = table.Column<int>(nullable: false),
-                    TransactionDetail = table.Column<string>(nullable: true)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BillType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PaymentType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmployeeOrVender = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VoucherNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TotalBill = table.Column<int>(type: "int", nullable: false),
+                    TransactionDetail = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -136,12 +139,12 @@ namespace dotnet.Migrations
                 name: "Nurses",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
-                    DutyDuration = table.Column<int>(nullable: false),
-                    SharePercentage = table.Column<int>(nullable: false),
-                    Salary = table.Column<int>(nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    DutyDuration = table.Column<int>(type: "int", nullable: false),
+                    SharePercentage = table.Column<int>(type: "int", nullable: false),
+                    Salary = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -158,19 +161,19 @@ namespace dotnet.Migrations
                 name: "Patients",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
-                    BirthPlace = table.Column<string>(nullable: true),
-                    Type = table.Column<string>(nullable: true),
-                    ExternalId = table.Column<string>(nullable: true),
-                    BloodGroup = table.Column<string>(nullable: true),
-                    ClinicSite = table.Column<string>(nullable: true),
-                    ReferredBy = table.Column<string>(nullable: true),
-                    ReferredDate = table.Column<DateTime>(nullable: false),
-                    Guardian = table.Column<string>(nullable: true),
-                    PaymentProfile = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    BirthPlace = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ExternalId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BloodGroup = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ClinicSite = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReferredBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReferredDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Guardian = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PaymentProfile = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -187,12 +190,12 @@ namespace dotnet.Migrations
                 name: "Qualifications",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
-                    Certificate = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    QualificationType = table.Column<string>(nullable: true)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Certificate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    QualificationType = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -209,11 +212,11 @@ namespace dotnet.Migrations
                 name: "Receptionists",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
-                    JobType = table.Column<string>(nullable: true),
-                    ShiftTime = table.Column<string>(nullable: true)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    JobType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ShiftTime = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -230,16 +233,16 @@ namespace dotnet.Migrations
                 name: "Appointments",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PatientId = table.Column<int>(nullable: false),
-                    DoctorId = table.Column<int>(nullable: false),
-                    ReceptionistId = table.Column<int>(nullable: false),
-                    Code = table.Column<string>(nullable: true),
-                    Date = table.Column<DateTime>(nullable: false),
-                    ConsultationDate = table.Column<DateTime>(nullable: false),
-                    Type = table.Column<string>(nullable: true),
-                    PatientCategory = table.Column<string>(nullable: true)
+                    PatientId = table.Column<int>(type: "int", nullable: false),
+                    DoctorId = table.Column<int>(type: "int", nullable: false),
+                    ReceptionistId = table.Column<int>(type: "int", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ConsultationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PatientCategory = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -256,11 +259,11 @@ namespace dotnet.Migrations
                 name: "AppointmentDetails",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AppointmentId = table.Column<int>(nullable: false),
-                    HasDischarged = table.Column<short>(nullable: false),
-                    WalkinType = table.Column<string>(nullable: true)
+                    AppointmentId = table.Column<int>(type: "int", nullable: false),
+                    HasDischarged = table.Column<short>(type: "smallint", nullable: false),
+                    WalkinType = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -277,18 +280,18 @@ namespace dotnet.Migrations
                 name: "Invoices",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AppointmentId = table.Column<int>(nullable: false),
-                    DoctorId = table.Column<int>(nullable: false),
-                    PatientId = table.Column<int>(nullable: false),
-                    ReceptionistId = table.Column<int>(nullable: false),
-                    Date = table.Column<DateTime>(nullable: false),
-                    CheckupType = table.Column<string>(nullable: true),
-                    CheckupFee = table.Column<int>(nullable: false),
-                    PaymentType = table.Column<string>(nullable: true),
-                    Disposibles = table.Column<int>(nullable: false),
-                    GrossAmount = table.Column<int>(nullable: false)
+                    AppointmentId = table.Column<int>(type: "int", nullable: false),
+                    DoctorId = table.Column<int>(type: "int", nullable: false),
+                    PatientId = table.Column<int>(type: "int", nullable: false),
+                    ReceptionistId = table.Column<int>(type: "int", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CheckupType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CheckupFee = table.Column<int>(type: "int", nullable: false),
+                    PaymentType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Disposibles = table.Column<int>(type: "int", nullable: false),
+                    GrossAmount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -304,23 +307,23 @@ namespace dotnet.Migrations
                         column: x => x.DoctorId,
                         principalTable: "Doctors",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Invoices_Patients_PatientId",
                         column: x => x.PatientId,
                         principalTable: "Patients",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "InvoiceProcedures",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProcedureId = table.Column<int>(nullable: false),
-                    InvoiceId = table.Column<int>(nullable: false)
+                    ProcedureId = table.Column<int>(type: "int", nullable: false),
+                    InvoiceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -343,18 +346,18 @@ namespace dotnet.Migrations
                 name: "Receipts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PatientId = table.Column<int>(nullable: false),
-                    ReceiptionistId = table.Column<int>(nullable: false),
-                    DoctorId = table.Column<int>(nullable: false),
-                    InvoiceId = table.Column<int>(nullable: false),
-                    DoctorFee = table.Column<int>(nullable: false),
-                    Pmid = table.Column<string>(nullable: true),
-                    Discount = table.Column<int>(nullable: false),
-                    TotalAmount = table.Column<int>(nullable: false),
-                    PendingAmount = table.Column<int>(nullable: false),
-                    PaidAmount = table.Column<int>(nullable: false)
+                    PatientId = table.Column<int>(type: "int", nullable: false),
+                    ReceiptionistId = table.Column<int>(type: "int", nullable: false),
+                    DoctorId = table.Column<int>(type: "int", nullable: false),
+                    InvoiceId = table.Column<int>(type: "int", nullable: false),
+                    DoctorFee = table.Column<int>(type: "int", nullable: false),
+                    Pmid = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Discount = table.Column<int>(type: "int", nullable: false),
+                    TotalAmount = table.Column<int>(type: "int", nullable: false),
+                    PendingAmount = table.Column<int>(type: "int", nullable: false),
+                    PaidAmount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -370,13 +373,13 @@ namespace dotnet.Migrations
                         column: x => x.InvoiceId,
                         principalTable: "Invoices",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Receipts_Patients_PatientId",
                         column: x => x.PatientId,
                         principalTable: "Patients",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -463,6 +466,7 @@ namespace dotnet.Migrations
                 column: "UserId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
